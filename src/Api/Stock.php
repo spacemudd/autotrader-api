@@ -11,6 +11,22 @@ use Olsgreen\AutoTrader\Http\SimpleMultipartBody;
 class Stock extends AbstractApi
 {
     /**
+     * Retrieve all stock items.
+     *
+     * @param string $advertiserId
+     * @param $page
+     * @param $pageSize
+     * @return array
+     */
+    public function all(string $advertiserId, $page, $pageSize): array
+    {
+        return $this->_get(
+            '/stock',
+            ['advertiserId' => $advertiserId, 'page' => $page, 'pageSize' => $pageSize],
+        );
+    }
+
+    /**
      * Create a stock item.
      *
      * @param string $advertiserId
